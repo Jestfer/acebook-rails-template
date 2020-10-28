@@ -9,6 +9,22 @@
   </head>
 
   <body>
+    <% flash.each do |type, msg| %>
+      <div class="flash">
+        <%= msg %>
+      </div>
+    <% end %>
+
+    <% if user_signed_in? %>
+      Hi, <strong><%= current_user.email%></strong>!
+      <br><br>
+    <% end %>
+
     <%= yield %>
+
+    <% if user_signed_in? %>
+      <br><br>
+      <%= link_to "Logout", destroy_user_session_path, method: :delete, :class => 'navbar-link'  %>
+    <% end %>
   </body>
 </html>
