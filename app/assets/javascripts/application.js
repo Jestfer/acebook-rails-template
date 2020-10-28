@@ -12,3 +12,11 @@
 //
 //= require rails-ujs
 //= require_tree .
+
+setTimeout(() => {
+  let flashDiv = document.querySelector(".flash");
+
+  if (flashDiv) {
+    flashDiv.hidden = true;
+  }
+}, 3000);
